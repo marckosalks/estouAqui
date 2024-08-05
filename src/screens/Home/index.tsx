@@ -6,10 +6,8 @@ import React , { useState} from "react";
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
   const [participantName, setParticipantName] = useState('');
+
   
-
-  //const participants = ['Dani', 'DvD', 'Duda', 'Bia', 'Sophia', 'Lucas', 'Pedro', 'Tigger', 'Vitória', 'Arthur', 'Lucas da Chica', 'Tobozo'];
-
   function handleParticipantAdd() {
     if(participants.includes(participantName)){
       return Alert.alert("Participante Existe ou valor", "Já existe um participante com esse nome !");
@@ -23,7 +21,7 @@ export function Home() {
     Alert.alert("Remover", `Deseja remover o convidado: ${name}?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert("Delatado")
+        onPress: () => setParticipants(prevState => prevState.filter( participant => participant != name))
       },
       {
         text: 'Não',
@@ -36,8 +34,8 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>Tren Bom</Text>
-      <Text style={styles.eventDate}>04 de Agosto de 2024</Text>
+      <Text style={styles.eventName}>Trem bOn</Text>
+      <Text style={styles.eventDate}>13 de Julho de 2024</Text>
 
       <View style={styles.form}>
         <TextInput
